@@ -11,7 +11,7 @@ from src.utils.config_parser import parser
 logger = logging.getLogger('ImageClassificationService')
 
 # paths for yolo
-__OLD_RUN_PATH = parser.get_attr('runs/classify/predict')
+__OLD_RUN_PATH = 'runs/classify/predict'
 __LABELS_PATH = 'runs/classify/predict/labels/'
 __input_img_data_path = parser.get_attr('yolo', 'img_data_path')
 __image_threshold = int(parser.get_attr('yolo', 'image_threshold'))
