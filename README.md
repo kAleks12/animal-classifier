@@ -34,7 +34,7 @@ animal-classifier is a REST API that generates list of text tags based on image 
 # Installation
 1. Clone this repo
 2. Install python 3.11 or newer
-3. Create oython venv by running this cli command in project directory:
+3. Create python venv by running this cli command in project directory:
 ```
 python3 -m venv
 ```
