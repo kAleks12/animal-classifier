@@ -7,12 +7,18 @@ from ultralytics import YOLO
 from src.server.model.image_classification import TagsDTO
 from src.utils.config_parser import parser
 
+logger = logging.getLogger('ImageClassificationService')
+
+# paths for yolo
 __yolo_old_run_path = parser.get_attr('yolo', 'old_run_path')
 __yolo_labels_path = parser.get_attr('yolo', 'labels_path')
 __input_img_data_path = parser.get_attr('yolo', 'img_data_path')
 
-logger = logging.getLogger('ImageClassificationService')
+# creating input dir if not initialized
+if not os.path.isdir(__input_img_data_path):
+    os.mkdir(__input_img_data_path)
 
+# removing old run dir if exists
 try:
     os.remove(__yolo_old_run_path)
 except WindowsError as e:
