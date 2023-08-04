@@ -1,0 +1,20 @@
+services:
+  animal-classifier:
+    image: animal-classifier:latest
+    container_name: classifier-instance
+    hostname: classifier-instance
+    build:
+        context: ..
+        dockerfile: docker/Dockerfile
+    ports:
+      - 8081:8081
+    expose:
+      - 8081
+    restart: unless-stopped
+    networks:
+      - animal-explorer
+
+networks:
+    animal-explorer:
+        driver: bridge
+        name: animal-explorer-module

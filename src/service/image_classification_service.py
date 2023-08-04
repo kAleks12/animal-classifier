@@ -23,7 +23,7 @@ if not os.path.isdir(__input_img_data_path):
 # removing old run dir if exists
 try:
     shutil.rmtree(__OLD_RUN_PATH)
-except WindowsError as e:
+except Exception as e:
     logger.error(e)
 __model = YOLO(parser.get_attr('yolo', 'model_weights'))
 
