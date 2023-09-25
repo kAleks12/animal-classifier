@@ -11,5 +11,5 @@ router = APIRouter(prefix='/classifier', tags=['Image Classification'])
 @router.post('/classify', response_model=TagsResponse,
              responses=get_error_responses(
                  [ExceptionInfo.VALIDATION_ERROR]))
-async def classify_image(image_file: UploadFile):
-    return TagsResponse(data=classify(image_file))
+async def classify_image(file: UploadFile):
+    return TagsResponse(data=classify(file))
